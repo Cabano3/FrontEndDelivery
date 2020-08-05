@@ -1,0 +1,29 @@
+<div>
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
+    </div>
+    <hr>
+    <h5>Lista de Usuarios</h5>  
+    <table class="table table-hover">
+        <thead class="bg-info">
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Cédula</th>
+                <th><button [routerLink]="['/usuario/form']" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let u of usuarios">
+                <td>{{u.nombre}}</td>
+                <td>{{u.apellido}}</td>
+                <td>{{u.cedula}}</td>
+                <td class="btn-group">
+                    <button [routerLink]="['/usuarios', u.idUsuario]" class="btn btn-sm btn-info"><fa-icon [icon]="faEye"></fa-icon></button>
+                    <button [routerLink]="['/usuario/form', u.idUsuario]" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button>
+                    <button (click)="delete(u)" class="btn btn-sm btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

@@ -1,0 +1,31 @@
+<div>
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
+    </div>
+    <hr>
+    <h5>Lista de Productos</h5>  
+    <table class="table table-hover">
+        <thead class="bg-info">
+            <tr>
+                <th>Producto</th>
+                <th>Fecha de Elaboración</th>
+                <th>Fecha de Vencimiento</th>
+                <th>Estado</th>
+                <th><button [routerLink]="['/producto/form']" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let p of productos">
+                <td>{{p.nombre}}</td>
+                <td>{{p.fechaelaboracion}}</td>
+                <td>{{p.fechavencimiento}}</td>
+                <td>{{p.estado}}</td>
+                <td class="btn-group">
+                    <button [routerLink]="['/productos', p.idProducto]" class="btn btn-sm btn-info"><fa-icon [icon]="faEye"></fa-icon></button>
+                    <button [routerLink]="['/producto/form', p.idProducto]" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button>
+                    <button (click)="delete(p)" class="btn btn-sm btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

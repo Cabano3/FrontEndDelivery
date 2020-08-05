@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>    
+    </div>
+    <hr>
+    <h6>{{title}}</h6>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="card-body"> 
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <input formControlName="nombre" type="text" class="form-control form-control-user" [(ngModel)]="producto.nombre" 
+                placeholder="Nombre del producto..." />
+        </div>          
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
+            </div>
+            <input formControlName="fechaelaboracion" type="date" class="form-control form-control-user" 
+                [(ngModel)]="producto.fechaelaboracion" 
+                />
+        </div>        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
+            </div>
+            <input formControlName="fechavencimiento" type="date" class="form-control form-control-user" 
+                [(ngModel)]="producto.fechavencimiento" 
+                />
+        </div>                
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faCalendar'></fa-icon></span>
+            </div>
+            <input formControlName="precio" type="number" class="form-control form-control-user" 
+                [(ngModel)]="producto.precio" placeholder="Precio del producto" />
+        </div>        
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
+            </div>
+            <input formControlName="comentario" type="text" class="form-control form-control-user" 
+                [(ngModel)]="producto.comentario" placeholder="Comentario adicional..." />
+        </div> 
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faGenderless'></fa-icon></span>
+            </div>
+            <select formControlName="estado" [(ngModel)]="producto.estado"  
+                class="form-control form-control-user">
+                <option value="A">Agotado</option>
+                <option value="D">Disponible</option>                
+            </select>            
+        </div>         
+    
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success">
+                <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
+            </button>
+            <button type="reset" (click)="onReset()" class="btn btn-danger">
+                <fa-icon [icon]='faTimes'></fa-icon>&nbsp;Cancelar
+            </button>
+        </div>
+    </div>        
+</form>
