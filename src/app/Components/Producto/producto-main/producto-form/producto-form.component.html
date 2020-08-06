@@ -1,69 +1,94 @@
 <div class="container">
     <div class="text-center">
-        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>    
+        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
     </div>
     <hr>
     <h6>{{title}}</h6>
 </div>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="card-body"> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
-            </div>
-            <input formControlName="nombre" type="text" class="form-control form-control-user" [(ngModel)]="producto.nombre" 
-                placeholder="Nombre del producto..." />
-        </div>          
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
-            </div>
-            <input formControlName="fechaelaboracion" type="date" class="form-control form-control-user" 
-                [(ngModel)]="producto.fechaelaboracion" 
-                />
-        </div>        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
-            </div>
-            <input formControlName="fechavencimiento" type="date" class="form-control form-control-user" 
-                [(ngModel)]="producto.fechavencimiento" 
-                />
-        </div>                
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faCalendar'></fa-icon></span>
-            </div>
-            <input formControlName="precio" type="number" class="form-control form-control-user" 
-                [(ngModel)]="producto.precio" placeholder="Precio del producto" />
-        </div>        
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
-            </div>
-            <input formControlName="comentario" type="text" class="form-control form-control-user" 
-                [(ngModel)]="producto.comentario" placeholder="Comentario adicional..." />
-        </div> 
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faGenderless'></fa-icon></span>
-            </div>
-            <select formControlName="estado" [(ngModel)]="producto.estado"  
-                class="form-control form-control-user">
-                <option value="A">Agotado</option>
-                <option value="D">Disponible</option>                
-            </select>            
-        </div>         
-    
-        <div class="btn-group">
-            <button type="submit" class="btn btn-success">
-                <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
-            </button>
-            <button type="reset" (click)="onReset()" class="btn btn-danger">
-                <fa-icon [icon]='faTimes'></fa-icon>&nbsp;Cancelar
-            </button>
+<div class="wrapper wrapper--w790">
+    <div class="card card-5">
+        <div class="card-heading">
+            <h2 class="title">Registrar Producto</h2>
         </div>
-    </div>        
-</form>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="name">Nombre del Producto</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" formControlName="nombre"
+                                    [(ngModel)]="producto.nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row m-b-55">
+                        <div class="name">Fecha del Producto</div>
+                        <div class="value">
+                            <div class="row row-space">
+
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="date" formControlName="fechaelaboracion"
+                                        [(ngModel)]="producto.fechaelaboracion">
+                                    <label class="label--desc">Fecha de Elaboracion </label>
+
+                                </div>
+
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="date" formControlName="fechavencimiento"
+                                        [(ngModel)]="producto.fechavencimiento">
+                                    <label class="label--desc">Fecha de Vencimiento</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Precio</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="number" formControlName="precio"
+                                    [(ngModel)]="producto.precio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Comentario</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" [(ngModel)]="producto.comentario"
+                                    formControlName="comentario">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Estado</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select formControlName="estado" [(ngModel)]="producto.estado">
+                                        <option disabled="disabled" selected="selected">Opcion</option>
+                                        <option value="A">Agotado</option>
+                                        <option value="D">Disponible</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button class="genric-btn success circle arrow" type="submit">Guardar</button>
+                        <br>
+                        <br>
+                        <button type="reset" (click)="onReset()" class="genric-btn danger circle arrow"
+                            type="submit">Cancelar</button>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

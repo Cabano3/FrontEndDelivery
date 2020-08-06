@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { faUserPlus, faIdCard, faSave, faTimes, faUser, faCalendar, faMapMarkedAlt, faGenderless } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-form',
@@ -26,15 +26,16 @@ export class UsuarioFormComponent implements OnInit {
 
   usuario : Usuario;
   title: string = "Nuevo Usuario";
+  @Output() flagToReload = new EventEmitter<Boolean>();
 
 
   constructor(private usuarioService : UsuarioService, private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit() : void {
     this.usuario = new Usuario();
     this.form = this.formBuilder.group({
-      cedula: [''],
+      cedula: ['', [Validators.required, Validators.minLength(10)]],
       nombre: [''],
       apellido: [''],
       telefono: [''],
@@ -74,6 +75,7 @@ export class UsuarioFormComponent implements OnInit {
         this.submitted = false;
         this.usuario = new Usuario();
         console.log(result);
+        this.router.navigate(['usuario/form']);
       }
     );
   }

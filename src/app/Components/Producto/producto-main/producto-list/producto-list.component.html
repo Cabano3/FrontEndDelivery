@@ -2,30 +2,38 @@
     <div class="text-center">
         <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
     </div>
+</div>
     <hr>
-    <h5>Lista de Productos</h5>  
-    <table class="table table-hover">
-        <thead class="bg-info">
-            <tr>
-                <th>Producto</th>
-                <th>Fecha de Elaboración</th>
-                <th>Fecha de Vencimiento</th>
-                <th>Estado</th>
-                <th><button [routerLink]="['/producto/form']" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let p of productos">
-                <td>{{p.nombre}}</td>
-                <td>{{p.fechaelaboracion}}</td>
-                <td>{{p.fechavencimiento}}</td>
-                <td>{{p.estado}}</td>
-                <td class="btn-group">
-                    <button [routerLink]="['/productos', p.idProducto]" class="btn btn-sm btn-info"><fa-icon [icon]="faEye"></fa-icon></button>
-                    <button [routerLink]="['/producto/form', p.idProducto]" class="btn btn-sm btn-warning"><fa-icon [icon]="faPencilAlt"></fa-icon></button>
-                    <button (click)="delete(p)" class="btn btn-sm btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
+    <h3 class="mb-30">Lista de Productos</h3>
+    <div class="progress-table-wrap">
+        <div class="progress-table">
+            <div class="table-head">
+                <div class="serial">Producto</div>
+                <div class="country">Fecha de Elaboración</div>
+                <div class="country">Fecha de Vencimiento</div>
+                <div class="visit">Estado</div>
+                <div class="percentage"><button [routerLink]="['/producto/form']" class="genric-btn info-border circle arrow">
+                        <fa-icon [icon]="faPlusSquare"></fa-icon>
+                    </button></div>
+            </div>
+            <div *ngFor = "let p of productos" class="table-row">
+                <div class="serial">{{p.nombre}}</div>
+                <div class="country">{{p.fechaelaboracion}}</div>
+                <div class="country">{{p.fechavencimiento}}</div>
+                <div class="visit">{{p.estado}}</div>
+                <div class="percentage">
+                    <button [routerLink]="['/productos', p.idProducto]" class="genric-btn warning-border circle arrow">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                    </button>
+                    <button [routerLink]="['/producto/form', p.idProducto]"  class="genric-btn primary-border circle arrow">
+                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                    </button>
+                    <button (click)="delete(p)" class="genric-btn danger-border circle arrow">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+

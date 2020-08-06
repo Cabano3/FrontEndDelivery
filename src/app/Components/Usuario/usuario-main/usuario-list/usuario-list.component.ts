@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/Services/usuario.service';
-import { faListAlt, faEye, faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faListAlt, faEye, faPencilAlt, faTrash ,faPlusSquare} from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +15,7 @@ export class UsuarioListComponent implements OnInit {
   faEye = faEye;
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
+  faPlusSquare=faPlusSquare;
 
   usuarios : Usuario[];
 
@@ -43,7 +44,9 @@ export class UsuarioListComponent implements OnInit {
     }).then((result) =>{
       if(result.value){
         this.usuarioService.delete(u).subscribe(
-          result => console.log(result)
+          result => {console.log(result)
+          this.list();
+        }
         ) 
       }
     })

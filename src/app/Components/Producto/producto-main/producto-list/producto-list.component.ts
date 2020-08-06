@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/Models/producto';
 import { ProductoService } from 'src/app/Services/producto.service';
-import { faListAlt, faEye, faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faListAlt, faEye, faPencilAlt, faTrash, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert2';
 
 
@@ -16,6 +16,7 @@ export class ProductoListComponent implements OnInit {
   faEye = faEye;
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
+  faPlusSquare=faPlusSquare;
 
   productos : Producto[];
 
@@ -44,7 +45,10 @@ export class ProductoListComponent implements OnInit {
     }).then((result) =>{
       if(result.value){
         this.productoService.delete(p).subscribe(
-          result => console.log(result)
+          result => {
+          console.log(result)
+          this.list();
+          }
         ) 
       }
     })

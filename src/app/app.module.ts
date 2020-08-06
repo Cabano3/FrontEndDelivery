@@ -20,10 +20,12 @@ import { ProductoMainComponent } from './Components/Producto/producto-main/produ
 import { ProductoListComponent } from './Components/Producto/producto-main/producto-list/producto-list.component';
 import { ProductoFormComponent } from './Components/Producto/producto-main/producto-form/producto-form.component';
 import { ProductoCardComponent } from './Components/Producto/producto-main/producto-card/producto-card.component';
+import { NavbardComponent } from './shared/navbard/navbard.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     UsuarioListComponent,
     UsuarioMainComponent,
     UsuarioFormComponent,
@@ -31,7 +33,8 @@ import { ProductoCardComponent } from './Components/Producto/producto-main/produ
     ProductoMainComponent,
     ProductoListComponent,
     ProductoFormComponent,
-    ProductoCardComponent
+    ProductoCardComponent,
+    NavbardComponent
   ],
   imports: [
     BrowserModule,

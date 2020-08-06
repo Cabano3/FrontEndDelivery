@@ -1,88 +1,79 @@
 <div class="container">
     <div class="text-center">
-        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>    
+        <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
     </div>
     <hr>
     <h6>{{title}}</h6>
 </div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="card-body"> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+    <div class="card-body">
+        <div class="billing_details">
+            <h3>Usuarios</h3>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="col-md-12 form-group p_star">
+                        <input type="text" class="form-control form-control-user" formControlName="cedula" [(ngModel)]="usuario.cedula"
+                        [ngClass]="{'is-invalid': submitted && f.cedula.errors}"  placeholder="Cedula"/>
+                        
+                        <div *ngIf="submitted && f.cedula.errors" class="invalid-feedback">
+                            <div *ngIf="f.cedula.errors.required">La cédula es requerida</div>
+                            <div *ngIf="f.cedula.errors.minlength">La cédula debe tener mínimo 10 caracteres</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input type="text" class="form-control" formControlName="nombre" [(ngModel)]="usuario.nombre"
+                            [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Nombre"/>
+
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input type="text" class="form-control" formControlName="apellido"
+                            [(ngModel)]="usuario.apellido" [ngClass]="{'is-invalid': submitted && f.apellido.errors}" placeholder="Apellidos"/>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input formControlName="telefono" type="text" class="form-control form-control-user"
+                            [(ngModel)]="usuario.telefono" placeholder="Teléfono" />
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input formControlName="direccion" type="text" class="form-control form-control-user"
+                            [(ngModel)]="usuario.direccion" placeholder="Dirección" />
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                        <input formControlName="correo" type="email" class="form-control form-control-user"
+                            [(ngModel)]="usuario.correo" placeholder="Correo" />
+
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input formControlName="usuariosesion" type="text" class="form-control form-control-user"
+                            [(ngModel)]="usuario.usuariosesion" placeholder="Usuario"/>
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <input formControlName="contrasena" type="password" class="form-control form-control-user"
+                            [(ngModel)]="usuario.contrasena" placeholder="contrasena" />
+
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                        <div>
+                            <select formControlName="rol" [(ngModel)]="usuario.rol"
+                                [ngClass]="{'is-invalid': submitted && f.rol.errors }"
+                                class="form-control form-control-user">
+                                <option value="C">Cliente</option>
+                                <option value="A">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="genric-btn success circle arrow" type="submit">Guardar</button>
+                    <br>
+                    <br>
+                    <button [routerLink]="['/usuarios']" class="genric-btn danger circle arrow"
+                        >Cancelar</button>
+
+                </div>
             </div>
-            <input formControlName="cedula" type="text" class="form-control form-control-user" [(ngModel)]="usuario.cedula" 
-                placeholder="Cédula" />
-        </div>          
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
-            </div>
-            <input formControlName="nombre" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.nombre" 
-                [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Nombre" />
-        </div>        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faUser'></fa-icon></span>
-            </div>
-            <input formControlName="apellido" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.apellido" [ngClass]="{'is-invalid': submitted && f.apellido.errors}" placeholder="Apellido" />
-        </div>                
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faCalendar'></fa-icon></span>
-            </div>
-            <input formControlName="telefono" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.telefono" placeholder="Teléfono" />
-        </div>        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
-            </div>
-            <input formControlName="direccion" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.direccion" placeholder="Dirección" />
-        </div> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
-            </div>
-            <input formControlName="correo" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.correo" placeholder="Correo" />
-        </div> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
-            </div>
-            <input formControlName="usuariosesion" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.usuariosesion" placeholder="Usuario" />
-        </div> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faMapMarkedAlt'></fa-icon></span>
-            </div>
-            <input formControlName="contrasena" type="text" class="form-control form-control-user" 
-                [(ngModel)]="usuario.contrasena" placeholder="Contraseña" />
-        </div> 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><fa-icon [icon]='faGenderless'></fa-icon></span>
-            </div>
-            <select formControlName="rol" [(ngModel)]="usuario.rol" 
-                [ngClass]="{'is-invalid': submitted && f.rol.errors }" 
-                class="form-control form-control-user">
-                <option value="C">Cliente</option>
-                <option value="A">Administrador</option>                
-            </select>            
-        </div>         
-    
-        <div class="btn-group">
-            <button type="submit" class="btn btn-success">
-                <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
-            </button>
-            <button type="reset" (click)="onReset()" class="btn btn-danger">
-                <fa-icon [icon]='faTimes'></fa-icon>&nbsp;Cancelar
-            </button>
+
         </div>
-    </div>        
+    </div>
+
 </form>

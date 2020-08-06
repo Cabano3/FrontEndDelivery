@@ -3,7 +3,7 @@ import { faUserPlus, faIdCard, faSave, faTimes, faUser, faCalendar, faMapMarkedA
 import { Producto } from 'src/app/Models/producto';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-form',
@@ -27,7 +27,8 @@ export class ProductoFormComponent implements OnInit {
   producto : Producto;
 
   constructor(private productoService : ProductoService, private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,private router: Router
+    ) { }
 
   ngOnInit() {
     this.producto = new Producto();
@@ -45,6 +46,7 @@ export class ProductoFormComponent implements OnInit {
         if(params['id']){
           this.productoService.retrieve(params['id']).subscribe(
             result => this.producto = result
+            
           )
         }
       }
@@ -69,6 +71,7 @@ export class ProductoFormComponent implements OnInit {
         this.submitted = false;
         this.producto = new Producto();
         console.log(result);
+        this.router.navigate(['producto/form']);
       }
     );
   }

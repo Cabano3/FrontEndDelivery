@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "DeliveryFront"
+    }
+  },
+  "defaultProject": "DeliveryFront",
+  "cli": {
+    "analytics": "1d248163-51cf-4473-97b2-4517b1098c0a"
+  }
 }

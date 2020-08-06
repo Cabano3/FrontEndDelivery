@@ -7,6 +7,11 @@ import { ProductoMainComponent } from './Components/Producto/producto-main/produ
 import { ProductoCardComponent } from './Components/Producto/producto-main/producto-card/producto-card.component';
 import { ProductoFormComponent } from './Components/Producto/producto-main/producto-form/producto-form.component';
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'usuarios', component: UsuarioMainComponent},
   {path: 'usuarios/:id', component: UsuarioCardComponent},
@@ -15,7 +20,8 @@ const routes: Routes = [
   {path: 'productos', component: ProductoMainComponent},
   {path: 'productos/:id', component: ProductoCardComponent},
   {path: 'producto/form', component: ProductoFormComponent},
-  {path: 'producto/form/:id', component: ProductoFormComponent}
+  {path: 'producto/form/:id', component: ProductoFormComponent},
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
 ];
 
 @NgModule({
