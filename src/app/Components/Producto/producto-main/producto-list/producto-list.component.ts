@@ -49,7 +49,7 @@ export class ProductoListComponent implements OnInit {
           console.log(result)
           this.list();
           }
-        ) 
+        )
       }
     })
   }

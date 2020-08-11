@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario-form',
@@ -75,15 +76,34 @@ export class UsuarioFormComponent implements OnInit {
         this.submitted = false;
         this.usuario = new Usuario();
         console.log(result);
-        this.router.navigate(['usuario/form']);
+        this.router.navigate(['usuarios']);
       }
     );
+
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Usuario: '+ this.usuario.nombre + " " + this.usuario.apellido +' guardado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   onReset() : void {
-    this.submitted = false;
-    this.form.reset();
-    this.usuario = new Usuario();
+    swal.fire({
+      title: '¿Estas seguro que desea continuar?',
+      text: "No se guardarán los cambios realizados.",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) =>{
+      if(result.value){
+        this.router.navigate(['usuarios']);
+      }
+    })
   }
 
 }

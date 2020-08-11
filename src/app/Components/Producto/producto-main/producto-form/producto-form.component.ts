@@ -4,6 +4,7 @@ import { Producto } from 'src/app/Models/producto';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto-form',
@@ -71,15 +72,34 @@ export class ProductoFormComponent implements OnInit {
         this.submitted = false;
         this.producto = new Producto();
         console.log(result);
-        this.router.navigate(['producto/form']);
+        this.router.navigate(['productos']);
       }
     );
+
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Producto: '+ this.producto.nombre + ' guardado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   onReset() : void {
-    this.submitted = false;
-    this.form.reset();
-    this.producto = new Producto();
+    swal.fire({
+      title: '¿Estas seguro que desea continuar?',
+      text: "No se guardarán los cambios realizados.",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) =>{
+      if(result.value){
+        this.router.navigate(['productos']);
+      }
+    })
   }
 
 }
