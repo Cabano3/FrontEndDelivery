@@ -3,12 +3,11 @@
         <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
     </div>
     <hr>
-    <h6>{{title}}</h6>
 </div>
 <div class="wrapper wrapper--w790">
     <div class="card card-5">
         <div class="card-heading">
-            <h2 class="title">Registrar Producto</h2>
+            <h2 class="title">{{title}}</h2>
         </div>
         <div class="card-body">
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -20,25 +19,27 @@
                                 <input class="input--style-5" type="text" formControlName="nombre"
                                     [(ngModel)]="producto.nombre">
                             </div>
+                            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                               <div class="required" *ngIf="nombre.errors.required">El nombre es requerido</div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row m-b-55">
-                        <div class="name">Fecha del Producto</div>
+                        <div class="name">Fecha de Elaboración</div>
                         <div class="value">
                             <div class="row row-space">
-
                                 <div class="input-group-desc">
                                     <input class="input--style-5" type="date" formControlName="fechaelaboracion"
                                         [(ngModel)]="producto.fechaelaboracion">
-                                    <label class="label--desc">Fecha de Elaboracion </label>
-
                                 </div>
-
+                            </div>
+                        </div>
+                        <div class="name">Fecha de Vencimiento</div>
+                        <div class="value">
+                            <div class="row row-space">
                                 <div class="input-group-desc">
                                     <input class="input--style-5" type="date" formControlName="fechavencimiento"
                                         [(ngModel)]="producto.fechavencimiento">
-                                    <label class="label--desc">Fecha de Vencimiento</label>
-
                                 </div>
                             </div>
                         </div>
@@ -48,18 +49,24 @@
                         <div class="name">Precio</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="number" formControlName="precio"
-                                    [(ngModel)]="producto.precio">
+                                <input required class="input--style-5" type="number" formControlName="precio"
+                                    [(ngModel)]="producto.precio" min="0" step="0.1">
                             </div>
+                            <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" >
+                                <div class="required" *ngIf="precio.errors.required">El precio es requerido</div>
+                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="name">Comentario</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" [(ngModel)]="producto.comentario"
+                                <input required class="input--style-5" type="text" [(ngModel)]="producto.comentario"
                                     formControlName="comentario">
                             </div>
+                            <div *ngIf="comentario.invalid && (comentario.dirty || comentario.touched)" >
+                                <div class="required" *ngIf="comentario.errors.required">El comentario es requerido</div>
+                             </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -79,7 +86,7 @@
 
                     </div>
                     <div>
-                        <button class="genric-btn success circle arrow" type="submit">Guardar</button>
+                        <button class="genric-btn success circle arrow" type="submit" [disabled]="!form.valid">Guardar</button>
                         <br>
                         <br>
                         <button type="button" (click)="onReset()" class="genric-btn danger circle arrow">Cancelar</button>

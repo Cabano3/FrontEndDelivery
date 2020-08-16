@@ -22,6 +22,8 @@ export class ProductoFormComponent implements OnInit {
   faMapMarkedAlt = faMapMarkedAlt;
   faGenderless = faGenderless;
 
+  title = "Registro de Producto";
+
   form: FormGroup;  
   submitted: boolean = false;
 
@@ -34,10 +36,10 @@ export class ProductoFormComponent implements OnInit {
   ngOnInit() {
     this.producto = new Producto();
     this.form = this.formBuilder.group({ 
-      nombre : [''],
-      precio : [''],
-      comentario : [''],
-      estado : [''],
+      nombre : ['', Validators.required],
+      precio : ['', Validators.required],
+      comentario : ['', Validators.required],
+      estado : ['', Validators.required],
       fechaelaboracion : [''],
       fechavencimiento : ['']  
     });
@@ -46,16 +48,14 @@ export class ProductoFormComponent implements OnInit {
       params => {
         if(params['id']){
           this.productoService.retrieve(params['id']).subscribe(
-            result => this.producto = result
-            
+            result => {
+              this.producto = result;
+              this.title = "Actualizando el registro de " + this.producto.nombre;
+            }
           )
         }
       }
     );
-  }
-
-  get f(){
-    return this.form.controls;
   }
 
   onSubmit() : void {
@@ -84,6 +84,10 @@ export class ProductoFormComponent implements OnInit {
       timer: 1500
     })
   }
+
+  get nombre(){return this.form.get('nombre');}
+  get precio(){return this.form.get('precio');}
+  get comentario(){return this.form.get('comentario');}
 
   onReset() : void {
     swal.fire({

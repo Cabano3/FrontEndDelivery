@@ -18,8 +18,8 @@
             </div>
             <div *ngFor = "let p of productos" class="table-row">
                 <div class="serial">{{p.nombre}}</div>
-                <div class="country">{{p.fechaelaboracion}}</div>
-                <div class="country">{{p.fechavencimiento}}</div>
+                <div class="country">{{p.fechaelaboracion | date : 'longDate'}}</div>
+                <div class="country">{{p.fechavencimiento | date : 'longDate'}}</div>
                 <div class="visit">{{p.estado}}</div>
                 <div class="percentage">
                     <button [routerLink]="['/productos', p.idProducto]" class="genric-btn warning-border circle arrow">

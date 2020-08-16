@@ -21,6 +21,8 @@ import { ProductoListComponent } from './Components/Producto/producto-main/produ
 import { ProductoFormComponent } from './Components/Producto/producto-main/producto-form/producto-form.component';
 import { ProductoCardComponent } from './Components/Producto/producto-main/producto-card/producto-card.component';
 import { NavbardComponent } from './shared/navbard/navbard.component';
+import { RolPipe } from './shared/rol.pipe';
+import { EstadoPipe } from './shared/estado.pipe';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { NavbardComponent } from './shared/navbard/navbard.component';
     ProductoListComponent,
     ProductoFormComponent,
     ProductoCardComponent,
-    NavbardComponent
+    NavbardComponent,
+    RolPipe,
+    EstadoPipe
   ],
   imports: [
     BrowserModule,

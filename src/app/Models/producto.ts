@@ -3,7 +3,7 @@ export class Producto {
     nombre : string;
     precio : number;
     comentario : string;
-    estado : string;
+    estado : string = "D";
     fechaelaboracion : string;
     fechavencimiento : string;
 }

@@ -7,6 +7,6 @@ export class Usuario {
     direccion : string;
     contrasena : string;
     usuariosesion : string;
-    rol : string;
+    rol : string = "A";
     correo : string;
 }

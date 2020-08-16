@@ -29,6 +29,8 @@ export class UsuarioFormComponent implements OnInit {
   title: string = "Nuevo Usuario";
   @Output() flagToReload = new EventEmitter<Boolean>();
 
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 
   constructor(private usuarioService : UsuarioService, private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,private router: Router) { }
@@ -36,15 +38,15 @@ export class UsuarioFormComponent implements OnInit {
   ngOnInit() : void {
     this.usuario = new Usuario();
     this.form = this.formBuilder.group({
-      cedula: ['', [Validators.required, Validators.minLength(10)]],
-      nombre: [''],
-      apellido: [''],
-      telefono: [''],
-      direccion: [''],
-      correo: [''],      
-      usuariosesion: [''],      
-      contrasena: [''],      
-      rol: ['']      
+      cedula: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      telefono: ['', Validators.required],
+      direccion: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.pattern(this.emailPattern)]],      
+      usuariosesion: ['', Validators.required],      
+      contrasena: ['', Validators.required],      
+      rol: ['', Validators.required]      
     });
 
     this.activatedRoute.params.subscribe(
@@ -56,10 +58,6 @@ export class UsuarioFormComponent implements OnInit {
         }
       }
     );
-  }
-
-  get f(){
-    return this.form.controls;
   }
 
   onSubmit() : void {
@@ -88,6 +86,15 @@ export class UsuarioFormComponent implements OnInit {
       timer: 1500
     })
   }
+
+  get cedula(){return this.form.get('cedula');}
+  get nombre(){return this.form.get('nombre');}
+  get apellido(){return this.form.get('apellido');}
+  get telefono(){return this.form.get('telefono');}
+  get direccion(){return this.form.get('direccion');}
+  get correo(){return this.form.get('correo');}
+  get usuariosesion(){return this.form.get('usuariosesion');}
+  get contrasena(){return this.form.get('contrasena');}
 
   onReset() : void {
     swal.fire({

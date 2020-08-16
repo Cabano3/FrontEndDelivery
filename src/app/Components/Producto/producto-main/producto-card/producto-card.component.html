@@ -20,7 +20,7 @@
             </div>
             <div class="media-body">
                 <small class="media-heading">Fecha de Vencimiento</small>
-                <p class="h6"><strong>{{producto.fechavencimiento}}</strong></p>
+                <p class="h6"><strong>{{producto.fechavencimiento | date : 'longDate'}}</strong></p>
             </div>
         </div>
     </button>
@@ -32,7 +32,7 @@
             </div>
             <div class="media-body">
                 <small class="media-heading">Fecha de Elaboración</small>
-                <p class="h6"><strong>{{producto.fechaelaboracion}}</strong></p>
+                <p class="h6"><strong>{{producto.fechaelaboracion | date : 'longDate'}}</strong></p>
             </div>
         </div>
     </button>
@@ -68,7 +68,7 @@
             </div>
             <div class="media-body">
                 <small class="media-heading">Estado</small>
-                <p class="h6"><strong>{{producto.estado}}</strong></p>
+                <p class="h6"><strong>{{producto.estado | estado}}</strong></p>
             </div>
         </div>
     </button>
