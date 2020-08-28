@@ -23,6 +23,14 @@ import { ProductoCardComponent } from './Components/Producto/producto-main/produ
 import { NavbardComponent } from './shared/navbard/navbard.component';
 import { RolPipe } from './shared/rol.pipe';
 import { EstadoPipe } from './shared/estado.pipe';
+import { UsuarioCarritoComponent } from './Components/usuario-carrrito-main/usuario-carrito/usuario-carrito.component';
+import { UsuarioCarrritoMainComponent } from './Components/usuario-carrrito-main/usuario-carrrito-main.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CabeceraPedidoFormComponent } from './Components/Pedido/cabecera-pedido-form/cabecera-pedido-form.component';
+import { DetallePedidoMainComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-main.component';
+import { DetallePedidoListComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-list/detalle-pedido-list.component';
+import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
+import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-card/detalle-pedido-card.component';
 
 
 @NgModule({
@@ -38,7 +46,14 @@ import { EstadoPipe } from './shared/estado.pipe';
     ProductoCardComponent,
     NavbardComponent,
     RolPipe,
-    EstadoPipe
+    EstadoPipe,
+    UsuarioCarritoComponent,
+    UsuarioCarrritoMainComponent,
+    CabeceraPedidoFormComponent,
+    DetallePedidoMainComponent,
+    DetallePedidoListComponent,
+    DetallePedidoFormComponent,
+    DetallePedidoCardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +61,7 @@ import { EstadoPipe } from './shared/estado.pipe';
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     FormsModule
   ],
   providers: [

@@ -1,0 +1,15 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+    <fieldset>
+        <label>Estado del Pedido: </label>
+        <input formControlName="estadopedido" [(ngModel)]="pedido.estadopedido" type="text" disabled/><br>
+        <label>Cliente</label>
+        <div class="row">
+            <input type="text" name="criteria" id="criteria" class="form-control"  (change)="searchUsuario($event)" />
+        </div>
+        <select formControlName="idUsuario" *ngIf="usuarios != null" [(ngModel)]="pedido.idUsuario">        
+            <option *ngFor="let item of usuarios" [value]="item.idUsuario">{{item.nombre}}</option>
+        </select><br>       
+    </fieldset>
+    <app-usuario-carrito></app-usuario-carrito>
+    <button type="submit" class="btn btn-sm btn-info">Guardar</button>
+</form>

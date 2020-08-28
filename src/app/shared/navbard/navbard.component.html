@@ -25,14 +25,14 @@
                             <ul id="navigation">  
                                 <li><a href="index.html">Incio</a></li>
                                 <li><a href="shop.html">Tienda</a></li>
-                                <li><a href="#">Usuarios</a>
+                                <li><a [routerLink]="['/usuarios']">Usuarios</a>
                                     <ul class="submenu">
                                         <li><a [routerLink]="['/usuarios']"> Ver Usuarios</a></li>
                                         
                                         <li><a [routerLink]="['/usuario/form']"> Crear Usuarios</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">Productos</a>
+                                <li><a [routerLink]="['/productos']">Productos</a>
                                     <ul class="submenu">
                                         <li><a [routerLink]="['/productos']">Ver Productos</a></li>
                                         <li><a [routerLink]="['/producto/form']">Crear Productos</a></li>
@@ -54,13 +54,8 @@
                     <!-- Header Right -->
                     <div class="header-right">
                         <ul>
-                            <li>
-                                <div class="nav-search search-switch">
-                                    <span class="flaticon-search"></span>
-                                </div>
-                            </li>
                             <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                            <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                            <li><a [routerLink]="['cabecera']"><span class="flaticon-shopping-cart"></span></a></li>
                         </ul>
                     </div>
                 </div>

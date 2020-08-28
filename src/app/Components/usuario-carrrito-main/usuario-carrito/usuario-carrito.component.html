@@ -1,0 +1,39 @@
+<!--Contenedor de los productos que se encuentran disponibles-->
+<div class="grid" > 
+  <div class="genric-btn info-border radius" *ngFor="let p of productos | paginate: {itemsPerPage: 3, currentPage:p}">
+    <div class="media">
+      <h5>Producto: {{p.nombre}}</h5>
+      <h5>Precio: {{p.precio | currency}}</h5>
+      <h5>Fecha de Elaboración: {{p.fechaelaboracion | date : 'longDate'}}</h5>
+      <h5>Fecha de Vencimiento: {{p.fechavencimiento | date : 'longDate'}}</h5>
+      <h5>Detalles: {{p.comentario}}</h5>
+      <div>
+        <button type="button" (click)="productoSelect(p.idProducto)" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><fa-icon [icon]="faPlusSquare"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h5>Producto: {{producto.nombre}}</h5>
+  <h5>Precio: {{producto.precio}}</h5>
+</div>
+<!--Contenedor de la paginación de los productos -->
+<div class="container">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-detalle-pedido-form></app-detalle-pedido-form>
+          </div>        
+      </div>
+  </div>
+</div>

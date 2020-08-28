@@ -40,4 +40,8 @@ export class UsuarioService {
   list(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.url, this.httpOptions);
   }
+
+  search(criteria:string): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.url.concat("?criteria=").concat(criteria), this.httpOptions);
+  } 
 }

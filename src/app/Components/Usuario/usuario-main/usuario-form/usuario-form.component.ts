@@ -53,7 +53,10 @@ export class UsuarioFormComponent implements OnInit {
       params => {
         if(params['id']){
           this.usuarioService.retrieve(params['id']).subscribe(
-            result => this.usuario = result
+            result => {
+              this.usuario = result;
+              this.title = "Editando: " + this.usuario.nombre +" " + this.usuario.apellido;
+            }
           )
         }
       }
