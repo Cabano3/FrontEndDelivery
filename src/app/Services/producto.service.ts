@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductoService {
-
-  url : string = "https://localhost:44324/api/Productos";
+  
+  url : string = "http://slndeliveryback-001-site1.btempurl.com/api/Productos";
 
   httpOptions = {
     headers : new HttpHeaders({

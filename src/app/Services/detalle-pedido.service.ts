@@ -8,7 +8,7 @@ import { DetallePedido } from 'src/app/Models/detalle-pedido';
 })
 export class DetallePedidoService {
 
-  url : string = "https://localhost:44324/api/DetallePedido";
+  url : string = "http://slndeliveryback-001-site1.btempurl.com/api/DetallePedido";
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',

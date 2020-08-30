@@ -1,1 +1,7 @@
-<h3>{{producto.nombre</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <label>Cantidad:</label>
+        <input type="number" step="1" max="99" min="1" formControlName="cantidad"
+        [(ngModel)]="detalle.cantidad">
+    </fieldset>
+</form>

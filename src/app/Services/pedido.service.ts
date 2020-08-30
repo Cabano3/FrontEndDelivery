@@ -8,7 +8,7 @@ import { Pedido } from '../Models/pedido';
 })
 export class PedidoService {
   
-  url : string = "https://localhost:44324/api/Pedido";
+  url : string = "http://slndeliveryback-001-site1.btempurl.com/api/Pedido";
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',
