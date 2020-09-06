@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+
 registerLocaleData(localeEs);
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +33,8 @@ import { DetallePedidoMainComponent } from './Components/DetallePedido/detalle-p
 import { DetallePedidoListComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-list/detalle-pedido-list.component';
 import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
 import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-card/detalle-pedido-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Pedido } from './Models/pedido';
 
 
 @NgModule({
@@ -62,13 +66,19 @@ import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-p
     FontAwesomeModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     UsuarioService,
     {
       provide: LOCALE_ID,
       useValue: 'es-EC'
+    },
+    { 
+      provide: MAT_DIALOG_DATA, 
+      useValue: {} 
     }
   ],
   bootstrap: [AppComponent]

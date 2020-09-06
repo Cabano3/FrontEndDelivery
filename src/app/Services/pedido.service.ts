@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pedido } from '../Models/pedido';
+import { DetallePedido } from '../Models/detalle-pedido';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PedidoService {
+export class PedidoService { 
   
-  url : string = "http://slndeliveryback-001-site1.btempurl.com/api/Pedido";
+  url : string = "https://localhost:44324/api/Pedido";
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',
@@ -18,12 +19,10 @@ export class PedidoService {
 
   constructor(private http : HttpClient) { }
 
-  save( p : Pedido) : Observable<any> {
+  save(p:Pedido) : Observable<any> {
     let pedidoBody = JSON.stringify(p);
-    if(p.idPedido === undefined){
-      return this.http.post<any>(this.url, pedidoBody,this.httpOptions);
-    }
-    return this.http.put<any>(this.url, pedidoBody,this.httpOptions);
+    console.log(pedidoBody);
+    return this.http.post<any>(this.url, pedidoBody,this.httpOptions);
   } 
 
   retrieve(id : number) : Observable<Pedido> {

@@ -1,10 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/Models/producto';
 import { ProductoService } from 'src/app/Services/producto.service';
-import {faPlusSquare, faSearch} from '@fortawesome/free-solid-svg-icons'
-import * as moment from 'moment/moment';
-import { DatePipe } from '@angular/common';
-import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-carrito',
@@ -13,14 +9,11 @@ import { disableDebugTools } from '@angular/platform-browser';
 })
 export class UsuarioCarritoComponent implements OnInit {
 
-  faPlusSquare = faPlusSquare;
-
   p : number = 1;
   disponible : string = "D";
 
   //listado productos que llegan de la base de datos
   productos : Producto[];
-  producto : Producto;
   
   constructor(private productoService : ProductoService) { }
 
@@ -33,16 +26,4 @@ export class UsuarioCarritoComponent implements OnInit {
       result => this.productos = result
     )
   }
-
-  productoSelect(id : number): void{
-    this.productoService.retrieve(id).subscribe(
-      result => this.producto = result
-    );
-  }
-
-
-
- 
- 
-
 }

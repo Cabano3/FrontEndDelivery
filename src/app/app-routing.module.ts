@@ -6,8 +6,8 @@ import { UsuarioFormComponent } from './Components/Usuario/usuario-main/usuario-
 import { ProductoMainComponent } from './Components/Producto/producto-main/producto-main.component';
 import { ProductoCardComponent } from './Components/Producto/producto-main/producto-card/producto-card.component';
 import { ProductoFormComponent } from './Components/Producto/producto-main/producto-form/producto-form.component';
-import { UsuarioCarrritoMainComponent } from './Components/usuario-carrrito-main/usuario-carrrito-main.component';
 import { CabeceraPedidoFormComponent } from './Components/Pedido/cabecera-pedido-form/cabecera-pedido-form.component';
+import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: 'producto/form', component: ProductoFormComponent},
   {path: 'producto/form/:id', component: ProductoFormComponent},
   {path: 'cabecera', component: CabeceraPedidoFormComponent},
+  {path: 'detalle', component: DetallePedidoFormComponent},
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
 ];
 

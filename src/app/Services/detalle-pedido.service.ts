@@ -8,7 +8,7 @@ import { DetallePedido } from 'src/app/Models/detalle-pedido';
 })
 export class DetallePedidoService {
 
-  url : string = "http://slndeliveryback-001-site1.btempurl.com/api/DetallePedido";
+  url : string = "https://localhost:44324/api/DetallePedido";
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',
@@ -18,11 +18,11 @@ export class DetallePedidoService {
 
   constructor(private http : HttpClient) { }
 
-  save( dp : DetallePedido) : Observable<any> {
+  save(dp : DetallePedido) : Observable<any> {
     let detallepedidoBody = JSON.stringify(dp);
+    console.log(detallepedidoBody);
     if(dp.idDetPedido === undefined){
       return this.http.post<any>(this.url, detallepedidoBody,this.httpOptions);
     }
-    return this.http.put<any>(this.url, detallepedidoBody,this.httpOptions);
   } 
 }
