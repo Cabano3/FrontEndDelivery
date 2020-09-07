@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductoService {
   
-  url : string = "https://localhost:44324/api/Productos";
+  url : string = "http://deliverybackend-001-site1.etempurl.com/api/Productos";
 
   httpOptions = {
     headers : new HttpHeaders({

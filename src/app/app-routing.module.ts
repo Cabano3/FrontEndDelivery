@@ -8,6 +8,7 @@ import { ProductoCardComponent } from './Components/Producto/producto-main/produ
 import { ProductoFormComponent } from './Components/Producto/producto-main/producto-form/producto-form.component';
 import { CabeceraPedidoFormComponent } from './Components/Pedido/cabecera-pedido-form/cabecera-pedido-form.component';
 import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
+import { ReportComponent } from './Components/report/report.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'producto/form/:id', component: ProductoFormComponent},
   {path: 'cabecera', component: CabeceraPedidoFormComponent},
   {path: 'detalle', component: DetallePedidoFormComponent},
+  {path: 'reportes', component: ReportComponent},
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
 ];
 

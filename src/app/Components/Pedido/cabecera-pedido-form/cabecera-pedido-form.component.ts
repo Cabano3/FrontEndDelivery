@@ -86,7 +86,8 @@ export class CabeceraPedidoFormComponent implements OnInit {
 
   calcularTotal(){
     this.detalles.forEach(element => {
-      this.pedido.total = this.pedido.total + element.subtotal     
+      this.pedido.total = this.pedido.total + element.subtotal   
+      this.pedido.total = parseFloat(this.pedido.total.toFixed(2));  
     }); 
   }
 
