@@ -35,7 +35,8 @@ import { DetallePedidoListComponent } from './Components/DetallePedido/detalle-p
 import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
 import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-card/detalle-pedido-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReportComponent } from './Components/report/report.component'
+import { ReportComponent } from './Components/report/report.component';
+
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { ReportComponent } from './Components/report/report.component'
     DetallePedidoListComponent,
     DetallePedidoFormComponent,
     DetallePedidoCardComponent,
-    ReportComponent
+    ReportComponent,
+
   ],
   imports: [
     BrowserModule,
