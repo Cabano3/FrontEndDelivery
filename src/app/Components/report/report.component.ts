@@ -10,9 +10,17 @@ import { MultiDataSet, Label } from 'ng2-charts';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent /*implements OnInit*/ {
+export class ReportComponent implements OnInit {
 
-  /*constructor(private reporteService : ReporteVentasService) { }
+  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData: MultiDataSet = [
+    [350, 450, 100],
+    [50, 150, 120],
+    [250, 130, 70],
+  ];
+  public doughnutChartType: ChartType = 'doughnut';
+
+  constructor(private reporteService : ReporteVentasService) { }
 
   reportes : ReporteVentas[];
 
@@ -25,12 +33,8 @@ export class ReportComponent /*implements OnInit*/ {
       this.reportes = result;
       console.log(this.reportes);
     });
-  }*/
+  }
 
 
-  doughnutChartLabels: Label[] = ['BMW', 'Ford', 'Tesla'];
-  doughnutChartData: MultiDataSet = [
-    [55, 25, 20]
-  ];
-  doughnutChartType: ChartType = 'doughnut';
+  
 }

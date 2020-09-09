@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
-
 registerLocaleData(localeEs);
+
+import { ChartsModule } from 'ng2-charts';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -34,7 +35,7 @@ import { DetallePedidoListComponent } from './Components/DetallePedido/detalle-p
 import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-form/detalle-pedido-form.component';
 import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-card/detalle-pedido-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Pedido } from './Models/pedido';
+import { ReportComponent } from './Components/report/report.component'
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { Pedido } from './Models/pedido';
     DetallePedidoMainComponent,
     DetallePedidoListComponent,
     DetallePedidoFormComponent,
-    DetallePedidoCardComponent
+    DetallePedidoCardComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ import { Pedido } from './Models/pedido';
     NgxPaginationModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    ChartsModule
   ],
   providers: [
     UsuarioService,
