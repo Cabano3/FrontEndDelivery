@@ -9,7 +9,7 @@ export class RolPipe implements PipeTransform {
     if(value === "C")
       return "Cliente";
     if(value === "A")
-      return "Cliente";
+      return "Administrador";
   }
 
 }

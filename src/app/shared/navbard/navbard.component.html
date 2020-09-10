@@ -23,8 +23,8 @@
                     <div class="main-menu d-none d-lg-block">
                         <nav>                                                
                             <ul id="navigation">  
-                                <li><a href="index.html">Incio</a></li>
-                                <li><a href="shop.html">Tienda</a></li>
+                                <li><a href="index.html">Inicio</a></li>
+                                <li><a [routerLink]="['detalle']">Tienda</a></li>
                                 <li><a [routerLink]="['/usuarios']">Usuarios</a>
                                     <ul class="submenu">
                                         <li><a [routerLink]="['/usuarios']"> Ver Usuarios</a></li>
@@ -41,7 +41,7 @@
                                 <li>
                                     <a [routerLink]="['/reportes']">Reportes</a>
                                 </li>
-                                <li><a href="#">Pages</a>
+                                <!--<li><a href="#">Pages</a>
                                     <ul class="submenu">
                                         <li><a href="login.html">Login</a></li>
                                         <li><a href="cart.html">Cart</a></li>
@@ -50,14 +50,14 @@
                                         <li><a href="checkout.html">Product Checkout</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contactos</a></li>
+                                <li><a href="contact.html">Contactos</a></li>-->
                             </ul>
                         </nav>
                     </div>
                     <!-- Header Right -->
                     <div class="header-right">
                         <ul>
-                            <li> <a href="#" class="nav-link" (click)="Logout()"><span >Logout</span></a></li>
+                            <li> <a href="#" class="nav-link" (click)="Logout()"><span >Cerrar Sesión</span></a></li>
                             <li> <a [routerLink]="['/ingresar']"><span class="flaticon-user"></span></a></li>
                             <li><a [routerLink]="['detalle']"><span class="flaticon-shopping-cart"></span></a></li>
                         </ul>

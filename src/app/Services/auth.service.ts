@@ -28,6 +28,7 @@ export class AuthService {
       map( resp => {
         localStorage.setItem('user', resp.user.usuariosesion);
         localStorage.setItem('role', resp.user.rol);
+        localStorage.setItem('id', resp.user.idUsuario);
         this.saveToken(resp.token);        
         return resp;        
       })
@@ -69,10 +70,12 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('role');
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
     localStorage.removeItem('duration');
   }
 
-
-
-
+  getIdUsuario():number{  
+    var id = localStorage.getItem('id');
+    return parseInt(id);
+  }
 }

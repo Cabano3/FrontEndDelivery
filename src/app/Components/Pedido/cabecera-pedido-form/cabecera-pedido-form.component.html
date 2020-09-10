@@ -19,7 +19,9 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Cliente:</div>
                                 </div>
-                                <input type="text" name="criteria" id="criteria" class="form-control" placeholder="Ingrese su número de cédula y pulse Enter..."  (change)="searchUsuario($event)" />
+                                <h5>{{usuario.nombre}} {{usuario.apellido}}</h5>
+                                <input class="form-control" formControlName="idUsuario" [(ngModel)]="pedido.idUsuario" type="hidden" readonly/><br>
+                                <!--<input type="text" name="criteria" id="criteria" class="form-control" placeholder="Ingrese su número de cédula y pulse Enter..."  (change)="searchUsuario($event)" />-->
                             </div>
                         </div>
                     </div>
@@ -33,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <table *ngIf="usuarios != null && usuarios.length > 0" class="table table-hover">
+                    <!--<table *ngIf="usuarios != null && usuarios.length > 0" class="table table-hover">
                         <thead>
                             <tr>
                                 <th>
@@ -64,16 +66,16 @@
                                 </td>
                             </tr>  
                         </tbody>
-                    </table>    
+                    </table>-->    
                 </div>
             </div>
-        </form>
-        <button type="submit" (click)="onSubmit()" class="btn btn-sm btn-info" ><fa-icon [icon]="faCheck"></fa-icon></button>                                            
+        </form>                                            
     </div>
-    <div>
-        <pre>
-            {{pedido | json}}
-        </pre>
+    <div class="row">
+        <div class="percentage">
+            <button type="submit" (click)="onSubmit()" class="btn btn-sm btn-info" ><fa-icon [icon]="faCheck"></fa-icon></button>                                            
+        <button type="button" class="btn btn-sm btn-danger" [routerLink]="['/detalle']"><fa-icon [icon]="faBackspace"></fa-icon></button>
+        </div>
     </div>
 </div>
 <!--Modal
@@ -90,6 +92,11 @@
               <app-detalle-pedido-form (detalleAdded)="addDetalle($event)"></app-detalle-pedido-form>
             </div>        
         </div>
+    </div>
+    <div>
+        <pre>
+            {{pedido | json}}
+        </pre>
     </div>
 </div> data-toggle="modal" data-target="#exampleModal"-->
 

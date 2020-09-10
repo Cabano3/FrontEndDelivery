@@ -31,7 +31,7 @@
         </div>
         <div class="media">
             <div class="media-left">
-                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+                <fa-icon class="mr-3 fa-2x" [icon]='faPhoneAlt'></fa-icon>
             </div>
             <div class="media-body">
                 <small class="media-heading">Teléfono</small>
@@ -40,7 +40,7 @@
         </div>
         <div class="media">
             <div class="media-left">
-                <fa-icon class="mr-3 fa-2x" [icon]='faUser'></fa-icon>
+                <fa-icon class="mr-3 fa-2x" [icon]='faMapMarkedAlt'></fa-icon>
             </div>
             <div class="media-body">
                 <small class="media-heading">Dirección</small>
@@ -52,7 +52,7 @@
     <div class="d-flex justify-content-around">
         <div class="media">
             <div class="media-left">
-                <fa-icon class="mr-3 fa-2x" [icon]='faCalendar'></fa-icon>
+                <fa-icon class="mr-3 fa-2x" [icon]='faEnvelope'></fa-icon>
             </div>
             <div class="media-body">
                 <small class="media-heading">Correo</small>
@@ -83,9 +83,14 @@
             </div>
             <div class="media-body">
                 <small class="media-heading">Rol</small>
-                <p class="h6"><strong>{{usuario.rol}}</strong></p>
+                <p class="h6"><strong>{{usuario.rol | rol}}</strong></p>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <button [routerLink]="['/usuarios']" class="genric-btn warning-border circle arrow">
+            <fa-icon [icon]="faBackspace"></fa-icon>
+        </button>
     </div>
     <hr>
     <br>

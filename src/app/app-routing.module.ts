@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'usuarios', component: UsuarioMainComponent,canActivate : [AuthGuard], data:{permittedRoles:["A"]}},
   {path: 'usuarios/:id', component: UsuarioCardComponent,canActivate : [AuthGuard], data:{permittedRoles:["A"]}},
-  {path: 'usuario/form', component: UsuarioFormComponent,canActivate : [AuthGuard], data:{permittedRoles:["A","C"]}},
+  {path: 'usuario/form', component: UsuarioFormComponent,canActivate : [AuthGuard], data:{permittedRoles:["A"]}},
   {path: 'usuario/form/:id', component: UsuarioFormComponent,canActivate : [AuthGuard], data:{permittedRoles:["A"]}},
   {path: 'productos', component: ProductoMainComponent,canActivate : [AuthGuard], data:{permittedRoles:["A"]}},
   {path: 'productos/:id', component: ProductoCardComponent,canActivate : [AuthGuard], data:{permittedRoles:["A","C"]}},

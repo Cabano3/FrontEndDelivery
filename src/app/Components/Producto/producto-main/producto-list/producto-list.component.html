@@ -4,11 +4,49 @@
     </div>
 </div>
     <hr>
-    <h3 class="mb-30">Lista de Productos</h3>
+    <div class="text-center">
+        <h3 class="mb-30">Lista de Productos</h3>
+    </div>
     <div class="wrapper wrapper--w790">
         <div class="progress-table">
-            <div class="table-head">
-                <div class="serial">Producto</div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Elaboración</th>
+                        <th>Vencimiento</th>
+                        <th>Estado</th>
+                        <th><button [routerLink]="['/producto/form']" class="genric-btn info-border circle arrow">
+                            <fa-icon [icon]="faPlusSquare"></fa-icon>
+                        </button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let p of productos">
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.fechaelaboracion | date : 'longDate'}}</td>
+                        <td>{{p.fechavencimiento | date : 'longDate'}}</td>
+                        <td>{{p.estado | estado}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button [routerLink]="['/productos', p.idProducto]" class="genric-btn warning-border circle arrow">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                                <button [routerLink]="['/producto/form', p.idProducto]"  class="genric-btn primary-border circle arrow">
+                                    <fa-icon [icon]="faPencilAlt"></fa-icon>
+                                </button>
+                                <button (click)="delete(p)" class="genric-btn danger-border circle arrow">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div class="table-head">
+                <div class="serial">
+                   <div class="text-center">Producto</div>
+                </div>
                 <div class="country">Fecha de Elaboración</div>
                 <div class="country">Fecha de Vencimiento</div>
                 <div class="visit">Estado</div>
@@ -32,7 +70,7 @@
                         <fa-icon [icon]="faTrash"></fa-icon>
                     </button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 

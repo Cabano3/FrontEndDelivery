@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faIdCard, faTimes, faUser, faCalendar, faMapMarkedAlt, faGenderless } from '@fortawesome/free-solid-svg-icons';
+import { faIdCard, faTimes, faUser, faCalendar, faMapMarkedAlt, faGenderless, faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { Producto } from 'src/app/Models/producto';
@@ -17,6 +17,7 @@ export class ProductoCardComponent implements OnInit {
   faCalendar = faCalendar;
   faMapMarkedAlt = faMapMarkedAlt;
   faGenderless = faGenderless;
+  faBackspace = faBackspace;
 
   producto : Producto;
 
