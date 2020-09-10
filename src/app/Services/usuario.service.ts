@@ -10,7 +10,7 @@ import { ObserveOnSubscriber } from 'rxjs/internal/operators/observeOn';
 })
 export class UsuarioService {
 
-  url : string = "http://deliverybackend-001-site1.etempurl.com/api/Usuarios";
+  url : string = "http://raiza1-001-site1.htempurl.com/api/Usuarios";
 
   httpOptions = {
     headers : new HttpHeaders({

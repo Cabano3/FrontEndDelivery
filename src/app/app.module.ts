@@ -36,7 +36,7 @@ import { DetallePedidoFormComponent } from './Components/DetallePedido/detalle-p
 import { DetallePedidoCardComponent } from './Components/DetallePedido/detalle-pedido-main/detalle-pedido-card/detalle-pedido-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReportComponent } from './Components/report/report.component';
-
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -61,6 +61,7 @@ import { ReportComponent } from './Components/report/report.component';
     DetallePedidoFormComponent,
     DetallePedidoCardComponent,
     ReportComponent,
+    LoginFormComponent
 
   ],
   imports: [

@@ -8,8 +8,8 @@ import { ReporteVentas } from '../Models/reporte-ventas';
 })
 export class ReporteVentasService {
 
-  url : string = "https://localhost:44324/api/Reportes";
-  url2 : string = "https://localhost:44324/api/VentasUsuarios";
+  url : string = "http://raiza1-001-site1.htempurl.com/api/Reportes";
+  url2 : string = "http://raiza1-001-site1.htempurl.com/api/VentasUsuarios";
 
   httpOptions = {
     headers : new HttpHeaders({
