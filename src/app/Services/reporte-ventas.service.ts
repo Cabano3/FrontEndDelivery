@@ -9,6 +9,7 @@ import { ReporteVentas } from '../Models/reporte-ventas';
 export class ReporteVentasService {
 
   url : string = "https://localhost:44324/api/Reportes";
+  url2 : string = "https://localhost:44324/api/VentasUsuarios";
 
   httpOptions = {
     headers : new HttpHeaders({
@@ -19,7 +20,11 @@ export class ReporteVentasService {
 
   constructor(private http : HttpClient) { }
 
-  list(): Observable<ReporteVentas[]>{
-    return this.http.get<ReporteVentas[]>(this.url, this.httpOptions);
+  list(): Observable<any>{
+    return this.http.get<any>(this.url, this.httpOptions);
+  }
+
+  listVentas(): Observable<any>{
+    return this.http.get<any>(this.url2, this.httpOptions);
   }
 }
