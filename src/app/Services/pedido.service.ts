@@ -9,7 +9,7 @@ import { DetallePedido } from '../Models/detalle-pedido';
 })
 export class PedidoService { 
   
-  url : string = "http://raiza1-001-site1.htempurl.com/api/Pedido";
+  url : string = "https://localhost:44324/api/Pedido";
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',

@@ -8,9 +8,11 @@ import { ReporteVentas } from '../Models/reporte-ventas';
 })
 export class ReporteVentasService {
 
-  url : string = "http://raiza1-001-site1.htempurl.com/api/Reportes";
-  url2 : string = "http://raiza1-001-site1.htempurl.com/api/VentasUsuarios";
-
+  url : string = "https://localhost:44324/PedidosClientesMes";
+  url2 : string = "https://localhost:44324/ProductosVendidosMes";
+  url3 : string = "https://localhost:44324/ProductosVendidos";
+  url4 : string = "https://localhost:44324/PedidosClientes";
+  
   httpOptions = {
     headers : new HttpHeaders({
       'Content-Type' : 'application/json',
@@ -26,5 +28,13 @@ export class ReporteVentasService {
 
   listVentas(): Observable<any>{
     return this.http.get<any>(this.url2, this.httpOptions);
+  }
+
+  listProductos() : Observable<any>{
+    return this.http.get<any>(this.url3, this.httpOptions);
+  }
+
+  listPedidos() : Observable<any>{
+    return this.http.get<any>(this.url4, this.httpOptions);
   }
 }
