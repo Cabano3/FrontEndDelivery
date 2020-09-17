@@ -10,6 +10,7 @@ export class AuthService {
   
 
   url : string = "http://raiza1-001-site1.htempurl.com/api/login";
+  
   //url : string = "https://localhost:44344/api/login";
   userToken : string = "";
   

@@ -8,10 +8,10 @@ import { ReporteVentas } from '../Models/reporte-ventas';
 })
 export class ReporteVentasService {
 
-  url : string = "https://localhost:44324/PedidosClientesMes";
-  url2 : string = "https://localhost:44324/ProductosVendidosMes";
-  url3 : string = "https://localhost:44324/ProductosVendidos";
-  url4 : string = "https://localhost:44324/PedidosClientes";
+  url : string = "http://raiza1-001-site1.htempurl.com/PedidosClientesMes";
+  url2 : string = "http://raiza1-001-site1.htempurl.com/ProductosVendidosMes";
+  url3 : string = "http://raiza1-001-site1.htempurl.com/ProductosVendidos";
+  url4 : string = "http://raiza1-001-site1.htempurl.com/PedidosClientes";
   
   httpOptions = {
     headers : new HttpHeaders({
